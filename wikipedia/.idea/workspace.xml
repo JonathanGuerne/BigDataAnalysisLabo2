@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c6fa582-cd98-4e51-a322-54806a5ef089" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,10 +30,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/wikipedia/WikipediaSuite.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-170">
+            <state relative-caret-position="68">
               <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
               <folding>
                 <element signature="e#19#50#0" expanded="true" />
@@ -41,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
-              <caret line="57" column="86" selection-start-line="57" selection-start-column="86" selection-end-line="57" selection-end-column="86" />
+            <state relative-caret-position="187">
+              <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
               <folding>
                 <element signature="e#19#68#0" expanded="true" />
               </folding>
@@ -185,7 +186,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553430833041" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553432831671" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -316,15 +317,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WikipediaSuite - 2019.03.22 at 12h 56m 41s.xml">
-      <configuration name="WikipediaSuite" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WikipediaSuite_afterAll - 2019.03.22 at 13h 02m 21s.xml">
-      <configuration name="WikipediaSuite.afterAll" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="WikipediaSuite - 2019.03.22 at 13h 06m 29s.xml">
-      <configuration name="WikipediaSuite" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="WikipediaSuite - 2019.03.22 at 13h 16m 32s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
@@ -344,6 +336,15 @@
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
     <history-entry file="WikipediaSuite - 2019.03.24 at 13h 27m 50s.xml">
+      <configuration name="WikipediaSuite" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WikipediaSuite - 2019.03.24 at 13h 32m 42s.xml">
+      <configuration name="WikipediaSuite" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WikipediaSuite - 2019.03.24 at 14h 03m 30s.xml">
+      <configuration name="WikipediaSuite" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WikipediaSuite - 2019.03.24 at 14h 05m 02s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -418,22 +419,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/wikipedia/WikipediaSuite.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+        <state relative-caret-position="187">
+          <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
           <folding>
-            <element signature="e#19#50#0" expanded="true" />
+            <element signature="e#19#68#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/wikipedia/WikipediaSuite.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="57" column="86" selection-start-line="57" selection-start-column="86" selection-end-line="57" selection-end-column="86" />
+        <state relative-caret-position="68">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
           <folding>
-            <element signature="e#19#68#0" expanded="true" />
+            <element signature="e#19#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
