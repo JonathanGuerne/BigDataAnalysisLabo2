@@ -41,11 +41,15 @@ object WikipediaRanking {
       if (pattern.findFirstIn(article.text) != None) acc + 1 else acc, (x,y)=> x+y)
   }
 
-  def rankLangs(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = ???
+  def rankLangs(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = {
 
-  /** Compute an inverted index of the set of articles, mapping each language
-    * to the Wikipedia pages in which it occurs.
-    */
+    /** Compute an inverted index of the set of articles, mapping each language
+      * to the Wikipedia pages in which it occurs.
+      */
+
+
+  }
+
   def makeIndex(langs: List[String], rdd: RDD[WikipediaArticle]): RDD[(String, Iterable[WikipediaArticle])] = ???
 
   /** (2) Compute the language ranking again, but now using the inverted index. Can you notice
