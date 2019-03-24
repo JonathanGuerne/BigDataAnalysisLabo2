@@ -74,15 +74,18 @@ object WikipediaRanking {
     sc.parallelize(articlesRdd).groupByKey()
 
   }
-  def rankLangsUsingIndex(index: RDD[(String, Iterable[WikipediaArticle])]): List[(String, Int)] = ???
+  def rankLangsUsingIndex(index: RDD[(String, Iterable[WikipediaArticle])]): List[(String, Int)] = {
 
-  /** (3) Use `reduceByKey` so that the computation of the index and the ranking is combined.
-    * Can you notice an improvement in performance compared to measuring *both* the computation of the index
-    * and the computation of the ranking? If so, can you think of a reason?
-    *
-    * Note: this operation is long-running. It can potentially run for
-    * several seconds.
-    */
+    /** (3) Use `reduceByKey` so that the computation of the index and the ranking is combined.
+      * Can you notice an improvement in performance compared to measuring *both* the computation of the index
+      * and the computation of the ranking? If so, can you think of a reason?
+      *
+      * Note: this operation is long-running. It can potentially run for
+      * several seconds.
+      */
+    val ascList = index.mapValues((it: Iterable[WikipediaArticle]) => it.size).sortBy(_._2).collect().toList
+    ascList.reverse
+  }
   def rankLangsReduceByKey(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = ???
 
   def main(args: Array[String]) {
