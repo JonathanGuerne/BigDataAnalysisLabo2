@@ -34,11 +34,11 @@ object WikipediaRanking {
       * */
 
     //val pattern: String = "\b"+lang.toLowerCase()+"\b"
-    val pattern: Regex = new Regex("\b"+lang+"\b")
+    val pattern: Regex = new Regex("\b" + lang + "\b")
 
     rdd.aggregate(0)((acc, article) =>
       //if (article.text.toLowerCase().matches(pattern)) acc + 1 else acc, (x,y)=> x+y)
-      if (pattern.findFirstIn(article.text) != None) acc + 1 else acc, (x,y)=> x+y)
+      if (pattern.findFirstIn(article.text) != None) acc + 1 else acc, (x, y) => x + y)
   }
 
   def rankLangs(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = {
@@ -47,6 +47,15 @@ object WikipediaRanking {
       * to the Wikipedia pages in which it occurs.
       */
 
+    // TODO remove this and use thibaut's method once it is implemented
+    def temp_occurrencesOfLang(lang: String, rdd: RDD[WikipediaArticle]): Int = {
+      rdd.aggregate(0)((acc, article) =>
+        //if (article.text.toLowerCase().matches(pattern)) acc + 1 else acc, (x,y)=> x+y)
+        if (article.text.contains(lang)) acc + 1 else acc, (x, y) => x + y)
+    }
+
+
+    langs.map((l: String) => (l, temp_occurrencesOfLang(l, rdd))).sortBy(_._2).reverse
 
   }
 
