@@ -21,7 +21,6 @@ Knowing all of that it is then pretty straight forward to realize that if we ite
 languages and then only trough the words in the article will be less cost efficient in term of list generation
 then the opposite. 
 
-
 ## Part 3
 
 **How much does the code take? What is the list of ranked languages?**
