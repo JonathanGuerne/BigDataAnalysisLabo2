@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c6fa582-cd98-4e51-a322-54806a5ef089" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/wikipedia.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/wikipedia.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/default/wikipedia$sources/1.0/resolved.xml.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/default/wikipedia$sources/1.0/resolved.xml.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/default/wikipedia$sources/1.0/resolved.xml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/default/wikipedia$sources/1.0/resolved.xml.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-compile-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-compile-internal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-compile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-compile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-optional.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-optional.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-provided.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-provided.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-runtime-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-runtime-internal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-runtime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-runtime.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-scala-tool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-scala-tool.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-test-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-test-internal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.11/resolution-cache/reports/default-wikipedia$sources-test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/$global/dumpStructure/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/$global/dumpStructure/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -49,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/wikipedia/WikipediaSuite.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
-              <caret line="77" column="37" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="37" />
+            <state relative-caret-position="578">
+              <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
               <folding>
                 <element signature="e#19#50#0" expanded="true" />
               </folding>
@@ -61,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="95" selection-start-line="95" selection-end-line="95" />
+            <state relative-caret-position="391">
+              <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
               <folding>
                 <element signature="e#19#68#0" expanded="true" />
               </folding>
@@ -207,7 +190,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553857994844" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553872295834" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -231,7 +214,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WikipediaSuite">
+  <component name="RunManager" selected="Application.WikipediaRanking">
     <configuration name="WikipediaRanking" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="wikipedia.WikipediaRanking" />
       <module name="wikipedia" />
@@ -278,9 +261,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.WikipediaRanking" />
         <item itemvalue="JUnit.WikipediaSuite" />
         <item itemvalue="JUnit.WikipediaSuite.afterAll" />
-        <item itemvalue="Application.WikipediaRanking" />
       </list>
     </recent_temporary>
   </component>
@@ -338,34 +321,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="WikipediaSuite - 2019.03.24 at 13h 27m 50s.xml">
+    <history-entry file="WikipediaSuite - 2019.03.29 at 14h 37m 13s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WikipediaSuite - 2019.03.24 at 13h 32m 42s.xml">
+    <history-entry file="WikipediaSuite - 2019.03.29 at 14h 38m 05s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WikipediaSuite - 2019.03.24 at 14h 03m 30s.xml">
+    <history-entry file="WikipediaSuite - 2019.03.29 at 14h 38m 35s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WikipediaSuite - 2019.03.24 at 14h 05m 02s.xml">
+    <history-entry file="WikipediaSuite - 2019.03.29 at 14h 39m 54s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WikipediaSuite - 2019.03.24 at 14h 07m 24s.xml">
+    <history-entry file="WikipediaSuite - 2019.03.29 at 14h 43m 46s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WikipediaSuite - 2019.03.24 at 14h 23m 38s.xml">
+    <history-entry file="WikipediaSuite - 2019.03.29 at 14h 50m 46s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WikipediaSuite - 2019.03.29 at 11h 36m 43s.xml">
+    <history-entry file="WikipediaSuite - 2019.03.29 at 14h 50m 55s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WikipediaSuite - 2019.03.29 at 11h 45m 58s.xml">
+    <history-entry file="WikipediaSuite - 2019.03.29 at 14h 51m 10s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WikipediaSuite - 2019.03.29 at 11h 47m 26s.xml">
+    <history-entry file="WikipediaSuite - 2019.03.29 at 15h 01m 32s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WikipediaSuite - 2019.03.29 at 11h 49m 02s.xml">
+    <history-entry file="WikipediaSuite - 2019.03.29 at 16h 03m 39s.xml">
       <configuration name="WikipediaSuite" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -387,7 +370,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.618929" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993994" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3985056" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -442,8 +425,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/wikipedia/WikipediaSuite.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="77" column="37" selection-start-line="77" selection-start-column="17" selection-end-line="77" selection-end-column="37" />
+        <state relative-caret-position="578">
+          <caret line="64" column="25" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
           <folding>
             <element signature="e#19#50#0" expanded="true" />
           </folding>
@@ -452,8 +435,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        <state relative-caret-position="391">
+          <caret line="40" column="4" lean-forward="true" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
           <folding>
             <element signature="e#19#68#0" expanded="true" />
           </folding>

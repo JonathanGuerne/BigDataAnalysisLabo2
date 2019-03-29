@@ -16,6 +16,11 @@ object WikipediaRanking {
   val sc: SparkContext = new SparkContext(conf)
   val wikiRdd: RDD[WikipediaArticle] = sc.parallelize(WikipediaData.articles)
 
+
+  def wordInArticle(w: String, a: WikipediaArticle): Boolean = {
+    a.text.split("[ ,!.]+").contains(w)
+  }
+
   /** Returns the number of articles on which the language `lang` occurs.
     * Hint1: consider using method `aggregate` on RDD[T].
     * Hint2: should you count the "Java" language when you see "JavaScript"?
@@ -33,18 +38,13 @@ object WikipediaRanking {
       * several seconds.
       * */
 
-    //val pattern: String = "\b"+lang.toLowerCase()+"\b"
-    val pattern: Regex = new Regex("\b" + lang + "\b")
-
-
-
     rdd.aggregate(0)((acc, article) =>
-      if (article.text.split("[ ,!.]+").map(_.toLowerCase).contains(lang.toLowerCase))
+      if (wordInArticle(lang, article))
         acc + 1
       else
         acc,
-      (x,y) => x + y)
-    }
+      (x, y) => x + y)
+  }
 
   def rankLangs(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = {
 
@@ -65,13 +65,18 @@ object WikipediaRanking {
       * several seconds.
       */
 
-    val articlesRdd = langs.flatMap((lang: String) => rdd.filter(_.text.split("[ ,!.]+").
-        map(_.toLowerCase).contains(lang.toLowerCase))
-      .map((article: WikipediaArticle) => (lang, article)).collect())
+    val arts = rdd.flatMap((a: WikipediaArticle) =>
+      a.text.split("[ ,!.]+")
+        .toSet
+        .filter((word: String) =>
+          langs.contains(word))
+        .map((_, a)))
+      .collect()
 
-    sc.parallelize(articlesRdd).groupByKey()
+    sc.parallelize(arts).groupByKey()
 
   }
+
   def rankLangsUsingIndex(index: RDD[(String, Iterable[WikipediaArticle])]): List[(String, Int)] = {
 
     /** (3) Use `reduceByKey` so that the computation of the index and the ranking is combined.
@@ -81,18 +86,20 @@ object WikipediaRanking {
       * Note: this operation is long-running. It can potentially run for
       * several seconds.
       */
-    val ascList = index.mapValues((it: Iterable[WikipediaArticle]) => it.size).sortBy(_._2).collect().toList
-    ascList.reverse
+    index.mapValues((it: Iterable[WikipediaArticle]) => it.size).sortBy(-_._2).collect().toList
   }
 
   def rankLangsReduceByKey(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = {
 
-    rdd.flatMap((a: WikipediaArticle) => langs.map((lang: String) =>
-      (lang, if (a.text.split("[ ,!.]+").map(_.toLowerCase).contains(lang.toLowerCase)) 1 else 0)))
-      .reduceByKey((v1,v2) => v1 + v2)
+    rdd.flatMap((a: WikipediaArticle) =>
+      a.text.split("[ ,!.]+")
+        .toSet
+        .filter((word: String) =>
+          langs.contains(word))
+        .map((_, 1)))
+      .reduceByKey(_ + _)
+      .sortBy(-_._2)
       .collect()
-      .sortBy(_._2)
-      .reverse
       .toList
 
   }
