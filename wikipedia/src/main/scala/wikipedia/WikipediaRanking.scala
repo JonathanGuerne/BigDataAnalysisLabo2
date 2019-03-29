@@ -36,10 +36,15 @@ object WikipediaRanking {
     //val pattern: String = "\b"+lang.toLowerCase()+"\b"
     val pattern: Regex = new Regex("\b" + lang + "\b")
 
+
+
     rdd.aggregate(0)((acc, article) =>
-      //if (article.text.toLowerCase().matches(pattern)) acc + 1 else acc, (x,y)=> x+y)
-      if (pattern.findFirstIn(article.text) != None) acc + 1 else acc, (x, y) => x + y)
-  }
+      if (article.text.split("[ ,!.]+").map(_.toLowerCase).contains(lang.toLowerCase))
+        acc + 1
+      else
+        acc,
+      (x,y) => x + y)
+    }
 
   def rankLangs(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = {
 
@@ -47,15 +52,7 @@ object WikipediaRanking {
       * to the Wikipedia pages in which it occurs.
       */
 
-    // TODO remove this and use thibaut's method once it is implemented
-    def temp_occurrencesOfLang(lang: String, rdd: RDD[WikipediaArticle]): Int = {
-      rdd.aggregate(0)((acc, article) =>
-        //if (article.text.toLowerCase().matches(pattern)) acc + 1 else acc, (x,y)=> x+y)
-        if (article.text.contains(lang)) acc + 1 else acc, (x, y) => x + y)
-    }
-
-
-    langs.map((l: String) => (l, temp_occurrencesOfLang(l, rdd))).sortBy(_._2).reverse
+    langs.map((l: String) => (l, occurrencesOfLang(l, rdd))).sortBy(_._2).reverse
 
   }
 
@@ -68,7 +65,8 @@ object WikipediaRanking {
       * several seconds.
       */
 
-    val articlesRdd = langs.flatMap((lang: String) => rdd.filter(_.text.contains(lang))
+    val articlesRdd = langs.flatMap((lang: String) => rdd.filter(_.text.split("[ ,!.]+").
+        map(_.toLowerCase).contains(lang.toLowerCase))
       .map((article: WikipediaArticle) => (lang, article)).collect())
 
     sc.parallelize(articlesRdd).groupByKey()
@@ -86,7 +84,18 @@ object WikipediaRanking {
     val ascList = index.mapValues((it: Iterable[WikipediaArticle]) => it.size).sortBy(_._2).collect().toList
     ascList.reverse
   }
-  def rankLangsReduceByKey(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = ???
+
+  def rankLangsReduceByKey(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = {
+
+    rdd.flatMap((a: WikipediaArticle) => langs.map((lang: String) =>
+      (lang, if (a.text.split("[ ,!.]+").map(_.toLowerCase).contains(lang.toLowerCase)) 1 else 0)))
+      .reduceByKey((v1,v2) => v1 + v2)
+      .collect()
+      .sortBy(_._2)
+      .reverse
+      .toList
+
+  }
 
   def main(args: Array[String]) {
 
