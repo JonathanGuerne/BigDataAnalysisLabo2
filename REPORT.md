@@ -224,16 +224,53 @@ It it good to see that this table is similar in each implemented approach
 
 **Can you notice an improvement in performance compared to measuring both the computation of the index and the computation of the ranking as we did in attempt #2? If so, can you think of a reason?**
 
-## Performance
+## Performances
+
+### Issue with contains
+
+Our first implementation of the laboratory had really poor performances and it was in fact due to the way we implement our condition checking 
+for a certain word in an article. The easiest way is to use the method 'contain()' directly on the article text (on the string) **but** it wouldn't allow us to distinct Java an Javascript for exemple. After spending a bit of time trying to use Regexp we finally decided to split our text into words (into a list of string). We could then easily check if our language was inside this list of word. We used the following to split text into words :
+
+```scala
+    a.text.split("[ ,!.]+")
+```
+Meaning that we are "only" splitting our text on space, coma, exclamation point and dot. This is not perfect (has there is other way to split words) but it worked fine for us.
+
+This did worked but we didn't realize how slow it was. Our main issue was that we would split articles into list of words very often.
+This was due to the fact that our code looked like the following (simplified) :
+
+```scala
+
+langs.map((l: String) => 
+    articles.map((a : WikipediaArticle) =>
+        if (a.text.split_into_words().contains(f)...))
+
+```
+
+To get better results we had to change the code in aim to split the article into words less often. 
+
+```scala
+    articles.map((a: WikipediaArticle) =>
+      a.text.split_into_words()
+        .toSet
+        .filter((word: String) =>
+          langs.contains(word))...
+
+```
+In this new approach each article was split into words **one time** instead of **NB_LANG times**
+
+#### lowercase dilemma
+
+We first tried to compute occurence of language appearing in both lower and higher case, but we finally choose not to. This is due to the fact that adding an highercase/lowercase check add up computation time to the program and it was never specified that we needed it. 
+
+
+### Final results
 
 ```bash
 Processing Part 1: naive ranking took 59018 ms.
 Processing Part 2: ranking using inverted index took 11732 ms.
 Processing Part 3: ranking using reduceByKey took 6381 ms.
 ```
-
-TODO : mentionner le problème ddu temps d'exécution avec le contain et les améliorations
-
 The plot below will summarize our results :
 </br>
 
