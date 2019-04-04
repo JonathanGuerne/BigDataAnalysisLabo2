@@ -273,7 +273,6 @@ Processing Part 1: naive ranking took 59018 ms.
 Processing Part 2: ranking using inverted index took 11732 ms.
 Processing Part 3: ranking using reduceByKey took 6381 ms.
 ```
-The plot below will summarize our results :
 </br>
 
 ![Languages mentioned in Wikipedia articles](images/plot.png)
