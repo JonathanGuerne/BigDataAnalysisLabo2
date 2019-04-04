@@ -4,7 +4,7 @@
 		module="wikipedia$sources"
 		revision="1.0"
 		status="integration"
-		publication="20190329113638"
+		publication="20190404111841"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
