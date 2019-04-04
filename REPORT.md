@@ -224,6 +224,8 @@ It it good to see that this table is similar in each implemented approach
 
 **Can you notice an improvement in performance compared to measuring both the computation of the index and the computation of the ranking as we did in attempt #2? If so, can you think of a reason?**
 
+TODO Pedro
+
 ## Performances
 
 ### Issue with contains
