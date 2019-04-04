@@ -31,9 +31,9 @@ As mentionned before the goal of this laboratory is to compare 3 methods of comp
 
 A series of Wikipedia articles where given with this laboratory. We will used theses articles to compute our results. With the articles the laboratory also comes with helpful code to make the interaction with the articles easier. We will not describe this given code in our report.   
 
-In part 1 we will implement a naive approach of the language ranking by dividing our problem in two part. First computing to number of occurences of a specific language throughout all articles and then secondly, using our previously build function to rank all languages based on their number of mention.
+In part 1 we will implement a naive approach of the language ranking by dividing our problem in two part. First computing the number of occurences of a specific language throughout all articles and then secondly, using our previously build function to rank all languages based on their number of mention.
 
-To assess that our implementation are working correctly this laboratory also comes with a series of units test (multiples for each part). We were also invite, if we wanted too, to add tests we found relevant but we didn't found to need to. 
+To assess that our implementation are working correctly this laboratory also comes with a series of units test (multiples for each part). We were also invite, if we wanted too, to add tests we found relevant but we didn't found the need to. 
 
 ## Part 1 RankLangs
 
@@ -48,7 +48,7 @@ rdd.aggregate(0)((acc, article) =>
     (x, y) => x + y)
 }
 ```
-As displayed here the first part of the code doesn't take much space. It is a rather simplistic approach witch will increment the accumulator
+As displayed here the first part of the code doesn't take much space. It is a rather simplistic approach wich will increment the accumulator
 if the condition WordInArticle is true. The WordInArticle function look as follow :
 
 ```scala
@@ -100,7 +100,7 @@ Clojure|29
 Groovy|29
 
 
-It it good to see that this table is similar in each implemented approach
+It is good to see that this table is similar in each implemented approach
 
 ## Part 2 RankLangsUsingIndex
 
@@ -137,7 +137,7 @@ The total computation time for this approach was :
 ```bash
 Processing Part 2: ranking using inverted index took 11732 ms.
 ```
-Witch is already way faster that in part 1. 
+Wich is already way faster that in part 1. 
 
 It output the following list : 
 
@@ -159,12 +159,12 @@ Scala|53
 Clojure|29
 Groovy|29
 
-It it good to see that this table is similar in each implemented approach
+It is good to see that this table is similar in each implemented approach
 
 **Can you notice a performance improvement over attempt #1? Why?**
 
 There is indeed a significant performance improvement. One of the reasons might be the following :
-for the first part to check if there was a mention of a specific language in an article we iterated trough 
+for the first part, we needed to check if there was a mention of a specific language in an article, so we iterated trough 
 each language and then used the function ```occurenceOflang```  over each article for a specific language. 
 And it is important to note that to be effective the "check function" has to iterate trough each word of 
 a given article's text. 
@@ -174,6 +174,8 @@ languages and then only trough the words in the article will be less cost effici
 then the opposite. 
 
 ## Part 3 RankLangsReduceByKey
+
+Here, we are using the same first technique as the part 2. For each article, we split their text by words and filter them to keep only language words. 
 
 ```scala
   def rankLangsReduceByKey(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = {
@@ -192,15 +194,19 @@ then the opposite.
   }
 ```
 
+The difference from the last part is that after the filter, we map every words that corresponds to a language to a tuple (language, 1). So this way we could use `reduceByKey` that will reduce all the value (1) by key (language) by using the function `_ + _` that do a simple addition. 
+
+This way after the `reduceByKey` we have a list that contains tupples (language, the number of occurence across all the articles). Finally, we sort this list by the number of occurence. 
+
 **How much does the code take? What is the list of ranked languages?**
 
 The total computation time for this approach was :
 ```bash
 Processing Part 3: ranking using reduceByKey took 6381 ms.
 ```
-Witch is by far the fastest approach.
+Wich is by far the fastest approach.
 
-It output the following list : 
+It outputs the following list : 
 
 Language|Number of mention
 -|-
@@ -220,11 +226,15 @@ Scala|53
 Clojure|29
 Groovy|29
 
-It it good to see that this table is similar in each implemented approach
+It is good to see that this table is similar in each implemented approach
 
 **Can you notice an improvement in performance compared to measuring both the computation of the index and the computation of the ranking as we did in attempt #2? If so, can you think of a reason?**
 
-TODO Pedro
+Here, the main reason why it's more efficient is that we use the function `reduceByKey` that is specially optimized by Spark to do reductions. Furhtemore, we do the computing in one time compared to the part 2 where it was done in two times. 
+
+In the last part, we looped over all the articles one time, then we loop over all the articles again to group by key. After that we still needed to retrieve the number of articles that mensionned the language. 
+
+Whereas with the 3rd part, we do the loop and the retrieving in one action with the reduction.
 
 ## Performances
 
@@ -261,7 +271,7 @@ To get better results we had to change the code in aim to split the article into
 ```
 In this new approach each article was split into words **one time** instead of **NB_LANG times**
 
-#### lowercase dilemma
+#### Lowercase dilemma
 
 We first tried to compute occurence of language appearing in both lower and higher case, but we finally choose not to. This is due to the fact that adding an highercase/lowercase check add up computation time to the program and it was never specified that we needed it. 
 
@@ -307,6 +317,6 @@ For the most part we can see that there is a slight different between the two ap
 
 Firstly, To understand this difference we may have to understand the difference between the medium used to compute our results. As said before the RedMonk analysis was mostly based on Github and Stackoverflow and, obviously, our studies was based on Wikipedia's articles. It is clear that a developer will find most of the information he is searching on Stackoverflow/Github rather then Wikipedia. It's also more probable to find older informations on Wikipedia as it's main purpose is to work as an encyclopedia. 
 
-Secondly, we can obviously see that our approach used a couple less languages then RedMonk did. It would have been interesting to see how the bottom of the table will have look like if we could have had more information. Our guess is that as languages get less and less mentioned difference between the two approach would have increase. 
+Secondly, we can obviously see that our approach used a couple less languages then RedMonk did. It would have been interesting to see how the bottom of the table will have look like if we could have had more information. Our guess is that as languages get less and less mentioned, difference between the two approach would have increase. 
 
 So, we were able to compute an estimation of the usage of common programming languages. We were also able to compare our work with the analysis made by RedMonk and were able to conclude that although our results differ it may have comme from the source of the data itself. We can conclude that by a great margin `Javasrcipt` is today the most popular programming language. 
